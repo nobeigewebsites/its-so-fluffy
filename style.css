@@ -143,10 +143,13 @@ img {
 
 .hero-copy {
   position: relative;
-  z-index: 20;
+  z-index: 50;
 }
 
 .eyebrow {
+  position: relative;
+  z-index: 51;
+
   display: inline-block;
   margin-bottom: 18px;
   padding: 9px 16px;
@@ -161,6 +164,9 @@ img {
 }
 
 .hero h1 {
+  position: relative;
+  z-index: 51;
+
   margin: 0;
   font-size: clamp(3.5rem, 7vw, 7rem);
   line-height: 0.92;
@@ -181,23 +187,39 @@ img {
 
 .hero h1 span {
   display: block;
+
   background: linear-gradient(
     90deg,
     #2ccfff,
     #7b63ff,
     #ff4da2
   );
+
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 
 .hero-intro {
+  position: relative;
+  z-index: 51;
+
   max-width: 600px;
   margin-top: 28px;
 
   font-size: 1.2rem;
   line-height: 1.7;
+}
+
+.hero-buttons {
+  position: relative;
+  z-index: 51;
+
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .hero-buttons {
@@ -574,7 +596,7 @@ img {
 
   transform: translateX(-50%);
 
-  z-index: 15;
+  z-index: 3;
 
   pointer-events: none;
 }
