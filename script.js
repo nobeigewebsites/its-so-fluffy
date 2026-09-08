@@ -17,17 +17,21 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 if (menuToggle && mainNav) {
+
   menuToggle.addEventListener("click", () => {
     mainNav.classList.toggle("mobile-open");
     menuToggle.classList.toggle("active");
   });
 
   document.querySelectorAll(".main-nav a").forEach(link => {
+
     link.addEventListener("click", () => {
       mainNav.classList.remove("mobile-open");
       menuToggle.classList.remove("active");
     });
+
   });
+
 }
 
 
@@ -37,15 +41,19 @@ if (menuToggle && mainNav) {
 
 const header = document.querySelector(".site-header");
 
-window.addEventListener("scroll", () => {
-  if (!header) return;
+if (header) {
 
-  if (window.scrollY > 40) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 40) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+  });
+
+}
 
 
 // =========================
@@ -66,30 +74,49 @@ const revealElements = document.querySelectorAll(
   ".gallery-feature-inner, " +
   ".review-feature-inner, " +
   ".about-story-inner, " +
-  ".about-why-inner"
+  ".about-why-inner, " +
+  ".real-event-photo, " +
+  ".creation-showcase-card, " +
+  ".more-creation-card"
 );
 
-revealElements.forEach(el => {
-  el.classList.add("reveal");
+revealElements.forEach(element => {
+  element.classList.add("reveal");
 });
 
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("reveal-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.15
-  }
-);
 
-revealElements.forEach(el => {
-  revealObserver.observe(el);
-});
+if ("IntersectionObserver" in window) {
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-visible");
+          revealObserver.unobserve(entry.target);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+  revealElements.forEach(element => {
+    revealObserver.observe(element);
+  });
+
+} else {
+
+  revealElements.forEach(element => {
+    element.classList.add("reveal-visible");
+  });
+
+}
 
 
 // =========================
@@ -99,38 +126,52 @@ revealElements.forEach(el => {
 const galleryFilters = document.querySelectorAll(".gallery-filter");
 const galleryCards = document.querySelectorAll(".scrapbook-card");
 
-galleryFilters.forEach(filter => {
-  filter.addEventListener("click", () => {
+if (galleryFilters.length && galleryCards.length) {
 
-    galleryFilters.forEach(btn => {
-      btn.classList.remove("active");
-    });
+  galleryFilters.forEach(filter => {
 
-    filter.classList.add("active");
+    filter.addEventListener("click", () => {
 
-    const selected = filter.textContent
-      .trim()
-      .toLowerCase();
+      galleryFilters.forEach(button => {
+        button.classList.remove("active");
+      });
 
-    galleryCards.forEach(card => {
+      filter.classList.add("active");
 
-      const caption = card.textContent
+      const selected = filter.textContent
         .trim()
         .toLowerCase();
 
-      if (
-        selected === "all the fluff" ||
-        caption.includes(selected.replace("sweet treats", "sweet"))
-      ) {
-        card.classList.remove("gallery-hidden");
-      } else {
-        card.classList.add("gallery-hidden");
-      }
+
+      galleryCards.forEach(card => {
+
+        const caption = card.textContent
+          .trim()
+          .toLowerCase();
+
+
+        const matches =
+          selected === "all the fluff" ||
+          caption.includes(selected) ||
+          (
+            selected === "sweet treats" &&
+            caption.includes("sweet")
+          );
+
+
+        if (matches) {
+          card.classList.remove("gallery-hidden");
+        } else {
+          card.classList.add("gallery-hidden");
+        }
+
+      });
 
     });
 
   });
-});
+
+}
 
 
 // =========================
@@ -143,78 +184,118 @@ const floatingElements = document.querySelectorAll(
   ".events-floating-candy, " +
   ".creations-sprinkle-trail, " +
   ".gallery-hero-sprinkles, " +
-  ".about-hero-sprinkles"
+  ".about-hero-sprinkles, " +
+  ".about-hero-floating-candy"
 );
 
-window.addEventListener("mousemove", event => {
 
-  const x =
-    (event.clientX / window.innerWidth - 0.5) * 2;
+if (
+  floatingElements.length &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
 
-  const y =
-    (event.clientY / window.innerHeight - 0.5) * 2;
+  window.addEventListener("mousemove", event => {
 
-  floatingElements.forEach((el, index) => {
+    const x =
+      (event.clientX / window.innerWidth - 0.5) * 2;
 
-    const strength = 6 + index * 1.5;
+    const y =
+      (event.clientY / window.innerHeight - 0.5) * 2;
 
-    el.style.translate =
-      `${x * strength}px ${y * strength}px`;
+
+    floatingElements.forEach((element, index) => {
+
+      const strength =
+        Math.min(6 + index * 1.5, 16);
+
+      element.style.translate =
+        `${x * strength}px ${y * strength}px`;
+
+    });
 
   });
 
-});
+}
 
 
 // =========================
 // BUTTON MICRO INTERACTION
 // =========================
 
-document.querySelectorAll(".btn, .nav-cta, .social-btn").forEach(button => {
+document
+  .querySelectorAll(".btn, .nav-cta, .social-btn")
+  .forEach(button => {
 
-  button.addEventListener("mouseenter", () => {
-    button.classList.add("button-pop");
+    button.addEventListener("mouseenter", () => {
+      button.classList.remove("button-pop");
+
+      void button.offsetWidth;
+
+      button.classList.add("button-pop");
+    });
+
+
+    button.addEventListener("animationend", () => {
+      button.classList.remove("button-pop");
+    });
+
   });
-
-  button.addEventListener("animationend", () => {
-    button.classList.remove("button-pop");
-  });
-
-});
 
 
 // =========================
-// FORM SUCCESS PLACEHOLDER
+// SMOOTH INTERNAL LINKS
 // =========================
 
-const contactForm =
-  document.querySelector(".contact-page-form") ||
-  document.querySelector(".contact-form");
+document
+  .querySelectorAll('a[href^="#"]')
+  .forEach(link => {
 
-if (contactForm) {
+    link.addEventListener("click", event => {
 
-  contactForm.addEventListener("submit", event => {
+      const targetId = link.getAttribute("href");
 
-    event.preventDefault();
+      if (!targetId || targetId === "#") {
+        return;
+      }
 
-    const submitButton =
-      contactForm.querySelector("button[type='submit']");
 
-    if (!submitButton) return;
+      const target = document.querySelector(targetId);
 
-    const originalText = submitButton.textContent;
+      if (!target) {
+        return;
+      }
 
-    submitButton.textContent = "Fluffy enquiry ready ✨";
-    submitButton.classList.add("form-success");
 
-    setTimeout(() => {
-      submitButton.textContent = originalText;
-      submitButton.classList.remove("form-success");
-    }, 3000);
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+          ? "auto"
+          : "smooth",
+        block: "start"
+      });
+
+    });
 
   });
 
-}
+
+// =========================
+// CONTACT FORM
+// =========================
+//
+// No fake success message here.
+//
+// The form will be connected to the real
+// email/form service separately.
+//
+// IMPORTANT:
+// Do not add event.preventDefault() here
+// unless we are deliberately handling
+// the real submission ourselves.
+//
 
 
 // =========================
@@ -227,10 +308,12 @@ if (
 
   document
     .querySelectorAll("*")
-    .forEach(el => {
-      el.style.animationDuration = "0.01ms";
-      el.style.animationIterationCount = "1";
-      el.style.scrollBehavior = "auto";
+    .forEach(element => {
+
+      element.style.animationDuration = "0.01ms";
+      element.style.animationIterationCount = "1";
+      element.style.scrollBehavior = "auto";
+
     });
 
 }
