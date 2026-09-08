@@ -699,7 +699,6 @@ img {
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-}
 
 .section h2 span {
   color: inherit;
@@ -8116,4 +8115,1205 @@ img {
     min-height: 395px;
   }
 
+}
+
+/* =========================================================
+   FINAL SITE-WIDE RESPONSIVE + MOBILE AUDIT OVERRIDES
+   Keep this block at the END of style.css
+========================================================= */
+
+/* ---------- global safety ---------- */
+
+html {
+  scroll-padding-top: 110px;
+}
+
+body {
+  min-width: 0;
+}
+
+main,
+section,
+.section-inner,
+.header-inner,
+.footer-inner {
+  min-width: 0;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.site-header {
+  transition:
+    padding 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.site-header.scrolled {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(255, 244, 249, 0.94);
+  box-shadow: 0 10px 30px rgba(102, 57, 123, 0.08);
+}
+
+.menu-toggle {
+  color: #6a3e8d;
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.menu-toggle:focus-visible,
+.main-nav a:focus-visible,
+.btn:focus-visible,
+.nav-cta:focus-visible,
+.social-btn:focus-visible,
+.gallery-filter:focus-visible,
+.contact-quick-card:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(118, 101, 255, 0.35);
+  outline-offset: 3px;
+}
+
+/* ---------- real image classes used by rewritten pages ---------- */
+
+.about-real-photo,
+.creation-real-photo,
+.gallery-real-photo,
+.scrapbook-real-photo,
+.gallery-feature-real-photo,
+.gallery-strip-photo,
+.review-feature-real-photo,
+.events-real-photo,
+.feature-real-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-real-photo,
+.creation-real-photo,
+.gallery-feature-real-photo,
+.review-feature-real-photo {
+  border-radius: 30px;
+}
+
+.about-story-image,
+.about-why-image,
+.creation-feature-image,
+.event-feature-image,
+.gallery-feature-image,
+.review-feature-image {
+  overflow: visible;
+}
+
+.about-story-image .about-real-photo,
+.about-why-image .about-real-photo,
+.creation-feature-image .creation-real-photo,
+.event-feature-image .feature-real-photo,
+.gallery-feature-image .gallery-feature-real-photo,
+.review-feature-image .review-feature-real-photo {
+  min-height: 550px;
+}
+
+.events-photo-card .events-real-photo,
+.gallery-hero-card .gallery-real-photo {
+  border-radius: 22px;
+}
+
+.festival-photo .feature-real-photo {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- About hero now uses mascot rather than photo card ---------- */
+
+.about-page-visual {
+  isolation: isolate;
+}
+
+.about-hero-mascot {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  z-index: 20;
+  width: min(500px, 72%);
+  margin: auto;
+}
+
+.about-hero-sprinkles {
+  z-index: 8;
+}
+
+.about-hero-floating-candy {
+  position: absolute;
+  width: 250px;
+  right: 1%;
+  top: 12%;
+  opacity: 0.22;
+  z-index: 7;
+  pointer-events: none;
+  animation: aboutFloatingCandy 8s ease-in-out infinite;
+}
+
+@keyframes aboutFloatingCandy {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+}
+
+/* ---------- creation showcase additions ---------- */
+
+.creation-showcase-section {
+  padding: 120px 5%;
+  background: linear-gradient(135deg, #fff5fa, #eefaff, #f4efff);
+}
+
+.creation-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1250px;
+  margin: 65px auto 0;
+}
+
+.creation-showcase-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 9px 9px 48px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 25px 60px rgba(111, 65, 135, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creation-showcase-card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.creation-showcase-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.creation-showcase-card:hover {
+  z-index: 10;
+  transform: translateY(-10px) rotate(0deg);
+  box-shadow: 0 35px 80px rgba(111, 65, 135, 0.22);
+}
+
+.creation-showcase-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.creation-showcase-card figcaption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 14px;
+  text-align: center;
+  font-weight: 900;
+  color: #a44288;
+}
+
+.more-creations-section {
+  padding: 130px 5%;
+  background: #fff;
+}
+
+.more-creations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  max-width: 1150px;
+  margin: 70px auto 0;
+}
+
+.more-creation-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 28px 70px rgba(105, 62, 128, 0.16);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.more-creation-card:nth-child(1) { transform: rotate(-2deg) translateY(25px); }
+.more-creation-card:nth-child(2) { transform: rotate(1deg) translateY(-15px); }
+.more-creation-card:nth-child(3) { transform: rotate(2deg) translateY(35px); }
+
+.more-creation-card:hover {
+  z-index: 10;
+  transform: translateY(-10px) rotate(0deg);
+  box-shadow: 0 38px 90px rgba(105, 62, 128, 0.23);
+}
+
+.more-creation-card img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+}
+
+.more-creation-card figcaption {
+  padding: 24px;
+  text-align: center;
+}
+
+.more-creation-card figcaption strong {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 1.2rem;
+  color: #e83ca4;
+}
+
+.more-creation-card figcaption span {
+  color: #705a79;
+  line-height: 1.5;
+}
+
+/* ---------- gallery real photos ---------- */
+
+.scrapbook-real-photo {
+  border-radius: 4px;
+}
+
+.scrapbook-a .scrapbook-real-photo,
+.scrapbook-h .scrapbook-real-photo { height: 480px; }
+
+.scrapbook-b .scrapbook-real-photo,
+.scrapbook-c .scrapbook-real-photo,
+.scrapbook-f .scrapbook-real-photo,
+.scrapbook-g .scrapbook-real-photo,
+.scrapbook-i .scrapbook-real-photo,
+.scrapbook-j .scrapbook-real-photo { height: 350px; }
+
+.scrapbook-d .scrapbook-real-photo { height: 330px; }
+.scrapbook-e .scrapbook-real-photo { height: 310px; }
+
+.gallery-feature-real-photo,
+.review-feature-real-photo {
+  min-height: 590px;
+}
+
+.gallery-strip-photo {
+  border-radius: 17px;
+}
+
+.gallery-hidden {
+  display: none !important;
+}
+
+/* ---------- review additions ---------- */
+
+.review-context {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b45ba7;
+}
+
+.reviews-source-note {
+  margin: 35px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #806b86;
+}
+
+/* ---------- contact long email safety ---------- */
+
+.contact-quick-card,
+.contact-info-item {
+  min-width: 0;
+}
+
+.contact-quick-card span,
+.contact-info-item span,
+.contact-info-item a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contact-info-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  /* Header becomes proper mobile drawer before it gets cramped */
+  .site-header {
+    padding: 12px 4%;
+  }
+
+  .header-inner {
+    gap: 12px;
+  }
+
+  .brand-icon {
+    width: 50px;
+  }
+
+  .brand-text {
+    width: 108px;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1102;
+    font-size: 1.9rem;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1101;
+
+    width: min(360px, 88vw);
+    height: 100dvh;
+    padding: 100px 28px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+
+    background: rgba(255, 247, 251, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: -20px 0 55px rgba(83, 43, 105, 0.16);
+
+    transform: translateX(110%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  .main-nav.mobile-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-nav a {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px;
+    font-size: 1.05rem;
+    text-align: left;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.active {
+    background: linear-gradient(90deg, rgba(44,207,255,0.11), rgba(255,77,162,0.11));
+  }
+
+  .main-nav a.active::after {
+    display: none;
+  }
+
+  .hero,
+  .events-page-hero,
+  .creations-page-hero,
+  .gallery-page-hero,
+  .reviews-page-hero,
+  .contact-page-hero,
+  .about-page-hero {
+    min-height: auto;
+    padding-top: 125px;
+  }
+
+  .hero-inner,
+  .events-page-inner,
+  .creations-page-inner,
+  .gallery-page-inner,
+  .reviews-page-inner,
+  .contact-page-inner,
+  .about-page-inner {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-copy,
+  .events-page-copy,
+  .creations-page-copy,
+  .gallery-page-copy,
+  .reviews-page-copy,
+  .contact-page-copy,
+  .about-page-copy {
+    padding-top: 20px;
+  }
+
+  .hero-intro,
+  .events-hero-intro,
+  .creations-hero-intro,
+  .gallery-hero-intro,
+  .reviews-hero-intro,
+  .contact-hero-intro,
+  .about-hero-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .events-page-copy .hero-buttons,
+  .creations-page-copy .hero-buttons,
+  .contact-quick-links {
+    justify-content: center;
+  }
+
+  .event-feature-inner,
+  .creation-feature-inner,
+  .festival-inner,
+  .about-story-inner,
+  .about-why-inner,
+  .gallery-feature-inner,
+  .review-feature-inner,
+  .contact-form-layout,
+  .contact-social-card,
+  .events-final-inner,
+  .creations-final-inner,
+  .gallery-final-inner,
+  .reviews-final-inner,
+  .about-final-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .event-feature-inner.reverse,
+  .creation-feature-inner.reverse {
+    direction: ltr;
+  }
+
+  .event-feature-copy,
+  .creation-feature-copy,
+  .festival-copy,
+  .about-story-copy,
+  .about-why-copy,
+  .gallery-feature-copy,
+  .review-feature-copy,
+  .contact-form-info,
+  .events-final-inner,
+  .creations-final-inner,
+  .gallery-final-inner,
+  .reviews-final-inner,
+  .about-final-inner,
+  .contact-social-card {
+    text-align: center;
+  }
+
+  .mini-pills,
+  .social-buttons {
+    justify-content: center;
+  }
+
+  .contact-form-info {
+    position: static;
+  }
+
+  .community-event-grid,
+  .sweet-chaos-grid,
+  .about-personality-grid,
+  .creation-showcase-grid,
+  .event-photo-grid-four,
+  .event-photo-grid-three,
+  .reviews-trust-grid,
+  .contact-faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .more-creations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-wall-card {
+    grid-column: auto !important;
+  }
+
+  .scrapbook-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+  }
+
+  .scrapbook-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  .site-header {
+    padding: 9px 4%;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-icon {
+    width: 43px;
+  }
+
+  .brand-text {
+    width: 92px;
+  }
+
+  .menu-toggle {
+    font-size: 1.7rem;
+  }
+
+  .main-nav {
+    width: min(330px, 90vw);
+    padding: 88px 20px 28px;
+  }
+
+  .section,
+  .event-feature,
+  .creation-feature,
+  .community-events-section,
+  .sweet-chaos-section,
+  .about-story-section,
+  .about-personality-section,
+  .about-why-section,
+  .gallery-scrapbook-section,
+  .review-wall-section,
+  .contact-form-section,
+  .contact-social-section,
+  .contact-faq-section,
+  .creation-showcase-section,
+  .more-creations-section,
+  .real-events-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .section {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .section-lead,
+  .hero-intro,
+  .events-hero-intro,
+  .creations-hero-intro,
+  .gallery-hero-intro,
+  .reviews-hero-intro,
+  .contact-hero-intro,
+  .about-hero-intro {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero h1,
+  .events-page-copy h1,
+  .creations-page-copy h1,
+  .gallery-page-copy h1,
+  .reviews-page-copy h1,
+  .contact-page-copy h1,
+  .about-page-copy h1 {
+    font-size: clamp(3rem, 15vw, 4.7rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+  }
+
+  .section h2,
+  .event-feature-copy h2,
+  .creation-feature-copy h2,
+  .festival-copy h2,
+  .something-different-inner h2,
+  .custom-creation-inner h2,
+  .gallery-feature-copy h2,
+  .review-feature-copy h2,
+  .contact-form-info h2,
+  .contact-social-copy h2,
+  .about-story-copy h2,
+  .about-why-copy h2,
+  .about-human-inner h2,
+  .events-final-inner h2,
+  .creations-final-inner h2,
+  .gallery-final-inner h2,
+  .reviews-final-inner h2,
+  .about-final-inner h2,
+  .contact-final-inner h2,
+  .event-gallery-cta h2,
+  .event-photo-heading h3 {
+    font-size: clamp(2.35rem, 11vw, 3.7rem);
+    line-height: 0.98;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 360px;
+    min-height: 50px;
+    padding: 14px 20px;
+  }
+
+  .hero-buttons {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Home hero visual */
+  .hero {
+    padding: 110px 5% 80px;
+  }
+
+  .hero-inner {
+    gap: 15px;
+  }
+
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  .hero-logo {
+    width: min(430px, 100%);
+  }
+
+  .hero-sparkles img {
+    width: 380px;
+    right: -20%;
+  }
+
+  .hero-candy img {
+    width: 280px;
+    right: -90px;
+    bottom: 20px;
+  }
+
+  .swirl-main { width: 125%; }
+  .swirl-secondary { width: 110%; }
+
+  /* All secondary heroes */
+  .events-page-hero,
+  .creations-page-hero,
+  .gallery-page-hero,
+  .reviews-page-hero,
+  .contact-page-hero,
+  .about-page-hero {
+    padding: 110px 5% 75px;
+  }
+
+  .events-page-visual,
+  .gallery-hero-collage,
+  .reviews-page-visual,
+  .contact-page-visual,
+  .about-page-visual,
+  .creations-page-visual {
+    min-height: 430px;
+  }
+
+  .events-photo-card,
+  .gallery-hero-card {
+    border-width: 6px;
+    border-radius: 22px;
+  }
+
+  .events-photo-one,
+  .card-one {
+    width: 62%;
+    height: 270px;
+    left: 0;
+    top: 95px;
+  }
+
+  .events-photo-two,
+  .card-two {
+    width: 59%;
+    height: 260px;
+    right: 0;
+    top: 25px;
+  }
+
+  .events-photo-three,
+  .card-three {
+    width: 54%;
+    height: 210px;
+    right: 18%;
+    bottom: 0;
+  }
+
+  .events-floating-candy,
+  .gallery-hero-sprinkles,
+  .creations-sprinkle-trail,
+  .about-hero-sprinkles,
+  .about-hero-floating-candy {
+    max-width: 55vw;
+  }
+
+  .creations-main-mascot {
+    width: min(330px, 72%);
+  }
+
+  .about-hero-mascot {
+    width: min(340px, 72%);
+  }
+
+  .about-hero-floating-candy {
+    right: -10px;
+    top: 70px;
+  }
+
+  /* Review hero keeps bubbles readable */
+  .reviews-hero-mascot {
+    width: 185px;
+  }
+
+  .review-bubble {
+    max-width: 185px;
+    padding: 14px 15px;
+    border-radius: 24px;
+  }
+
+  .review-bubble p {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .review-bubble-one { left: 0; top: 38px; }
+  .review-bubble-two { right: 0; top: 68px; }
+  .review-bubble-three { right: 11%; bottom: 18px; }
+
+  /* Contact hero */
+  .contact-quick-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-quick-card {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-fluff-card {
+    width: 100%;
+    padding: 30px 18px;
+    border-radius: 30px;
+  }
+
+  .contact-card-details {
+    grid-template-columns: 1fr;
+  }
+
+  /* Feature sections */
+  .event-feature,
+  .creation-feature,
+  .festival-section,
+  .gallery-feature-moment,
+  .review-feature-section,
+  .about-story-section,
+  .about-why-section,
+  .contact-form-section,
+  .contact-social-section,
+  .contact-faq-section {
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+
+  .event-feature-inner,
+  .creation-feature-inner,
+  .festival-inner,
+  .about-story-inner,
+  .about-why-inner,
+  .gallery-feature-inner,
+  .review-feature-inner,
+  .contact-form-layout {
+    gap: 38px;
+  }
+
+  .event-feature-image,
+  .creation-feature-image,
+  .about-story-image,
+  .about-why-image,
+  .gallery-feature-image,
+  .review-feature-image {
+    min-height: 390px;
+    padding: 9px;
+    border-radius: 28px;
+    transform: none;
+  }
+
+  .event-feature-image .feature-real-photo,
+  .creation-feature-image .creation-real-photo,
+  .about-story-image .about-real-photo,
+  .about-why-image .about-real-photo,
+  .gallery-feature-image .gallery-feature-real-photo,
+  .review-feature-image .review-feature-real-photo {
+    min-height: 370px;
+    border-radius: 21px;
+  }
+
+  .floating-label,
+  .creation-tag,
+  .about-story-image::after {
+    right: 8px;
+    bottom: 18px;
+    max-width: calc(100% - 20px);
+    padding: 11px 15px;
+    font-size: 0.76rem;
+  }
+
+  /* Festival collage */
+  .festival-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .festival-collage {
+    min-height: 430px;
+  }
+
+  .festival-photo-a {
+    width: 62%;
+    height: 270px;
+    left: 0;
+    top: 75px;
+  }
+
+  .festival-photo-b {
+    width: 59%;
+    height: 260px;
+    right: 0;
+    top: 15px;
+  }
+
+  .festival-photo-c {
+    width: 54%;
+    height: 205px;
+    left: 25%;
+    bottom: 0;
+  }
+
+  /* Card grids all become one column */
+  .community-event-grid,
+  .sweet-chaos-grid,
+  .about-personality-grid,
+  .creation-showcase-grid,
+  .more-creations-grid,
+  .event-photo-grid-three,
+  .event-photo-grid-four,
+  .review-wall,
+  .reviews-trust-grid,
+  .contact-faq-grid,
+  .form-grid,
+  .scrapbook-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community-card,
+  .sweet-chaos-card,
+  .personality-card,
+  .creation-showcase-card,
+  .more-creation-card,
+  .review-wall-card,
+  .scrapbook-card,
+  .real-event-photo {
+    transform: none !important;
+  }
+
+  .creation-showcase-card img,
+  .more-creation-card img,
+  .scrapbook-real-photo,
+  .scrapbook-a .scrapbook-real-photo,
+  .scrapbook-b .scrapbook-real-photo,
+  .scrapbook-c .scrapbook-real-photo,
+  .scrapbook-d .scrapbook-real-photo,
+  .scrapbook-e .scrapbook-real-photo,
+  .scrapbook-f .scrapbook-real-photo,
+  .scrapbook-g .scrapbook-real-photo,
+  .scrapbook-h .scrapbook-real-photo,
+  .scrapbook-i .scrapbook-real-photo,
+  .scrapbook-j .scrapbook-real-photo,
+  .real-event-photo img,
+  .event-photo-grid-four .real-event-photo img {
+    height: 360px;
+  }
+
+  .review-wall-card,
+  .large-review {
+    padding: 26px 22px;
+  }
+
+  .large-review blockquote,
+  .review-feature-copy blockquote {
+    font-size: 1.08rem;
+  }
+
+  /* Gallery filters stay swipeable */
+  .gallery-filter-pills {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 3px 12px;
+    scrollbar-width: none;
+  }
+
+  .gallery-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-filter {
+    flex: 0 0 auto;
+  }
+
+  .gallery-strip-section {
+    padding: 65px 0;
+  }
+
+  .gallery-strip-card {
+    flex-basis: 215px;
+    height: 270px;
+  }
+
+  /* Forms */
+  .contact-page-form {
+    padding: 24px 16px;
+    border-radius: 26px;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    min-height: 50px;
+    font-size: 16px; /* prevents iOS zoom */
+  }
+
+  .form-field textarea {
+    min-height: 150px;
+  }
+
+  /* Big decorative / CTA sections */
+  .something-different-section,
+  .custom-creation-section,
+  .about-human-section,
+  .contact-final-cta,
+  .gallery-final-cta,
+  .reviews-final-cta {
+    padding: 90px 5%;
+  }
+
+  .events-final-cta,
+  .creations-final-cta,
+  .about-final-cta {
+    padding: 80px 5%;
+  }
+
+  .events-final-inner,
+  .creations-final-inner,
+  .gallery-final-inner,
+  .reviews-final-inner,
+  .about-final-inner,
+  .event-gallery-cta {
+    gap: 30px;
+    text-align: center;
+  }
+
+  .events-final-mascot,
+  .creations-final-mascot,
+  .gallery-final-mascot,
+  .reviews-final-mascot,
+  .about-final-mascot,
+  .event-gallery-mascot,
+  .contact-social-mascot {
+    width: 175px;
+  }
+
+  .event-gallery-cta {
+    grid-template-columns: 1fr;
+    margin-top: 90px;
+    padding: 34px 20px;
+    border-radius: 30px;
+  }
+
+  .event-photo-heading {
+    grid-template-columns: 44px 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .event-photo-heading > span {
+    font-size: 2.25rem;
+  }
+
+  .festival-photo-category,
+  .personalised-photo-category {
+    padding: 35px 15px;
+    border-radius: 28px;
+  }
+
+  .event-photo-category {
+    margin-top: 75px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 48px 5% 24px;
+  }
+
+  .footer-brand {
+    max-width: none;
+  }
+
+  .footer-logo > img {
+    width: 48px;
+  }
+
+  .footer-logo > div {
+    width: 108px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    margin: 30px 0 24px;
+  }
+
+  .footer-links a {
+    padding: 5px 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .brand-text {
+    width: 84px;
+  }
+
+  .hero h1,
+  .events-page-copy h1,
+  .creations-page-copy h1,
+  .gallery-page-copy h1,
+  .reviews-page-copy h1,
+  .contact-page-copy h1,
+  .about-page-copy h1 {
+    font-size: clamp(2.7rem, 14.5vw, 3.7rem);
+  }
+
+  .events-page-visual,
+  .gallery-hero-collage,
+  .reviews-page-visual,
+  .contact-page-visual,
+  .about-page-visual,
+  .creations-page-visual {
+    min-height: 390px;
+  }
+
+  .review-bubble {
+    max-width: 165px;
+  }
+
+  .review-bubble p {
+    font-size: 0.78rem;
+  }
+
+  .contact-quick-card {
+    padding: 14px 13px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES: remove hover-only movement
+========================================================= */
+
+@media (hover: none) {
+  .btn:hover,
+  .nav-cta:hover,
+  .social-btn:hover,
+  .community-card:hover,
+  .sweet-chaos-card:hover,
+  .personality-card:hover,
+  .review-wall-card:hover,
+  .scrapbook-card:hover,
+  .real-event-photo:hover,
+  .events-photo-card:hover,
+  .gallery-hero-card:hover,
+  .creation-showcase-card:hover,
+  .more-creation-card:hover,
+  .contact-quick-card:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .gallery-strip-track {
+    animation: none !important;
+  }
 }
