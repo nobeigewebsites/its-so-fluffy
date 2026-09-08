@@ -1,1 +1,756 @@
+/* =========================
+   BASIC RESET
+========================= */
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff7fb;
+  color: #3c2457;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 5%;
+  background: rgba(255, 233, 244, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 58px;
+}
+
+.brand-text {
+  width: 120px;
+}
+
+.brand-text-top,
+.brand-text-bottom {
+  width: 100%;
+}
+
+.main-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #49305e;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.nav-cta {
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    #37d5ff,
+    #8167ff,
+    #ff4fa3
+  );
+  box-shadow: 0 10px 25px rgba(178, 82, 255, 0.25);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px 5% 130px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8), transparent 30%),
+    radial-gradient(circle at 80% 25%, rgba(127,223,255,0.25), transparent 35%),
+    linear-gradient(
+      135deg,
+      #ffd9ea 0%,
+      #ffeaf5 45%,
+      #e9e4ff 100%
+    );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 5;
+  max-width: 1400px;
+  margin: auto;
+
+  min-height: 700px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+
+/* =========================
+   HERO COPY
+========================= */
+
+.hero-copy {
+  position: relative;
+  z-index: 20;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 9px 16px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.65);
+
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    #2ccfff,
+    #7b63ff,
+    #ff4da2
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-intro {
+  max-width: 600px;
+  margin-top: 28px;
+
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+
+/* =========================
+   HERO LOGO AREA
+========================= */
+
+.hero-visual {
+  position: relative;
+  min-height: 620px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  isolation: isolate;
+}
+
+
+/* actual logo stays sharp and dominant */
+
+.hero-logo {
+  position: relative;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(620px, 95%);
+}
+
+.hero-candyfloss {
+  position: relative;
+  z-index: 30;
+  width: 42%;
+
+  animation: candyFloat 5s ease-in-out infinite;
+}
+
+.hero-logo-words {
+  position: relative;
+  z-index: 31;
+  width: 58%;
+  margin-left: -4%;
+}
+
+.hero-its-so,
+.hero-fluffy {
+  width: 100%;
+}
+
+.hero-fluffy {
+  margin-top: -4%;
+}
+
+
+/* =========================
+   CANDYFLOSS SWIRLS
+========================= */
+
+.swirl {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform-origin: center center;
+
+  pointer-events: none;
+
+  filter:
+    blur(4px)
+    saturate(1.15);
+
+  mix-blend-mode: screen;
+
+  will-change: transform, opacity;
+}
+
+
+/* large cloud-like ring */
+
+.swirl-main {
+  z-index: 10;
+
+  width: 130%;
+
+  opacity: 0.24;
+
+  animation:
+    swirlAround 18s linear infinite,
+    swirlPulse 7s ease-in-out infinite;
+}
+
+
+/* secondary opposing swirl */
+
+.swirl-secondary {
+  z-index: 12;
+
+  width: 105%;
+
+  opacity: 0.18;
+
+  filter:
+    blur(7px)
+    saturate(1.1);
+
+  animation:
+    swirlAroundReverse 24s linear infinite,
+    swirlPulseSecondary 9s ease-in-out infinite;
+}
+
+
+/* =========================
+   SWIRL ANIMATIONS
+========================= */
+
+@keyframes swirlAround {
+
+  0% {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(1);
+  }
+
+  25% {
+    transform:
+      translate(-48%, -52%)
+      rotate(90deg)
+      scale(1.04);
+  }
+
+  50% {
+    transform:
+      translate(-52%, -48%)
+      rotate(180deg)
+      scale(0.98);
+  }
+
+  75% {
+    transform:
+      translate(-49%, -51%)
+      rotate(270deg)
+      scale(1.05);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg)
+      scale(1);
+  }
+}
+
+
+@keyframes swirlAroundReverse {
+
+  0% {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg)
+      scale(0.96);
+  }
+
+  25% {
+    transform:
+      translate(-53%, -48%)
+      rotate(270deg)
+      scale(1.03);
+  }
+
+  50% {
+    transform:
+      translate(-48%, -53%)
+      rotate(180deg)
+      scale(1);
+  }
+
+  75% {
+    transform:
+      translate(-51%, -49%)
+      rotate(90deg)
+      scale(1.04);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(0.96);
+  }
+}
+
+
+/* opacity breathing gives the wispy/cloud feel */
+
+@keyframes swirlPulse {
+
+  0%,
+  100% {
+    opacity: 0.18;
+    filter: blur(5px) saturate(1);
+  }
+
+  50% {
+    opacity: 0.30;
+    filter: blur(2px) saturate(1.2);
+  }
+}
+
+
+@keyframes swirlPulseSecondary {
+
+  0%,
+  100% {
+    opacity: 0.12;
+    filter: blur(8px) saturate(1);
+  }
+
+  50% {
+    opacity: 0.22;
+    filter: blur(5px) saturate(1.1);
+  }
+}
+
+
+/* =========================
+   FLOATING CANDYFLOSS ICON
+========================= */
+
+@keyframes candyFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  50% {
+    transform:
+      translateY(-16px)
+      rotate(2deg);
+  }
+}
+
+
+/* =========================
+   BACKGROUND DECORATIONS
+========================= */
+
+.hero-bg-clouds {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-clouds {
+  position: absolute;
+  width: 1100px;
+  right: -250px;
+  top: 100px;
+  opacity: 0.09;
+
+  animation: cloudDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes cloudDrift {
+
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-80px, 25px, 0);
+  }
+}
+
+
+.hero-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.hero-sparkles img {
+  position: absolute;
+
+  width: 700px;
+
+  right: 2%;
+  top: 10%;
+
+  opacity: 0.28;
+
+  animation: sparkleTwinkle 4s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0.34;
+    transform: scale(1.02);
+  }
+}
+
+
+.hero-candy {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+
+.hero-candy img {
+  position: absolute;
+
+  width: 520px;
+
+  right: -80px;
+  bottom: 70px;
+
+  opacity: 0.16;
+
+  animation: floatingCandy 10s ease-in-out infinite;
+}
+
+@keyframes floatingCandy {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      rotate(-3deg);
+  }
+
+  50% {
+    transform:
+      translate(-20px, -22px)
+      rotate(3deg);
+  }
+}
+
+
+/* =========================
+   HERO BOTTOM FLOSS
+========================= */
+
+.hero-bottom-border {
+  position: absolute;
+
+  width: 110%;
+
+  left: 50%;
+  bottom: -5px;
+
+  transform: translateX(-50%);
+
+  z-index: 15;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px 26px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+  border: none;
+
+  font-weight: 800;
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #2fcfff,
+    #7665ff,
+    #ff4ca4
+  );
+
+  box-shadow:
+    0 14px 30px rgba(136, 79, 255, 0.25);
+}
+
+.btn-secondary {
+  color: #6a3e8d;
+
+  background: rgba(255,255,255,0.72);
+
+  border: 2px solid rgba(160, 105, 220, 0.18);
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+  padding: 100px 5%;
+}
+
+.section-inner {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.narrow {
+  max-width: 850px;
+  text-align: center;
+}
+
+.section-kicker {
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #d34292;
+}
+
+.section h2 {
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 1;
+  margin: 15px 0 25px;
+}
+
+.section h2 span {
+  color: #c748a2;
+}
+
+.section-lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .main-nav,
+  .nav-cta {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    border: none;
+    background: none;
+    font-size: 2rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-copy {
+    margin-top: 40px;
+  }
+
+  .hero-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .hero-logo {
+    width: min(600px, 90%);
+  }
+
+  .swirl-main {
+    width: 115%;
+  }
+
+  .swirl-secondary {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .hero-logo {
+    width: 100%;
+  }
+
+  .swirl-main {
+    width: 125%;
+    opacity: 0.18;
+  }
+
+  .swirl-secondary {
+    width: 115%;
+    opacity: 0.12;
+  }
+
+  .hero-sparkles img {
+    width: 400px;
+  }
+
+  .hero-candy img {
+    width: 300px;
+  }
+}
