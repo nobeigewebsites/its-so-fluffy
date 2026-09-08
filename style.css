@@ -6387,3 +6387,1019 @@ img {
 
 }
 
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
+.about-page-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 150px 5% 110px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,0.9), transparent 28%),
+    radial-gradient(circle at 84% 24%, rgba(44,207,255,0.20), transparent 32%),
+    linear-gradient(
+      135deg,
+      #ffd9eb 0%,
+      #ffeaf5 42%,
+      #ebe6ff 100%
+    );
+}
+
+.about-page-inner {
+  position: relative;
+  z-index: 10;
+
+  max-width: 1400px;
+  margin: auto;
+
+  min-height: 720px;
+
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   ABOUT HERO COPY
+========================================================= */
+
+.about-page-copy {
+  position: relative;
+  z-index: 30;
+}
+
+.about-page-copy h1 {
+  margin: 0;
+
+  font-size: clamp(4rem, 7.5vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+
+  background: linear-gradient(
+    90deg,
+    #ff3cac 0%,
+    #f52fa8 45%,
+    #d842c4 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-page-copy h1 span {
+  display: block;
+
+  background: linear-gradient(
+    90deg,
+    #2ccfff 0%,
+    #7665ff 48%,
+    #ff4da2 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-hero-intro {
+  max-width: 620px;
+
+  margin-top: 28px;
+
+  font-size: 1.2rem;
+  line-height: 1.75;
+
+  color: #624a70;
+}
+
+
+/* =========================================================
+   ABOUT HERO DECOR
+========================================================= */
+
+.about-hero-clouds,
+.about-hero-sparkles {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.about-hero-clouds {
+  z-index: 1;
+}
+
+.about-hero-clouds img {
+  position: absolute;
+
+  width: 1100px;
+
+  right: -280px;
+  top: 40px;
+
+  opacity: 0.10;
+
+  animation:
+    aboutCloudDrift 17s ease-in-out infinite alternate;
+}
+
+@keyframes aboutCloudDrift {
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(-80px, 30px, 0)
+      scale(1.04);
+  }
+}
+
+.about-hero-sparkles {
+  z-index: 4;
+}
+
+.about-hero-sparkles img {
+  position: absolute;
+
+  width: 720px;
+
+  right: 2%;
+  top: 7%;
+
+  opacity: 0.24;
+
+  animation:
+    aboutSparklePulse 4.2s ease-in-out infinite;
+}
+
+@keyframes aboutSparklePulse {
+  0%,
+  100% {
+    opacity: 0.13;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0.34;
+    transform: scale(1.03);
+  }
+}
+
+
+/* =========================================================
+   HERO PHOTO
+========================================================= */
+
+.about-page-visual {
+  position: relative;
+
+  min-height: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-photo-card {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(500px, 82%);
+  height: 570px;
+
+  padding: 13px;
+
+  border-radius: 42px;
+
+  background:
+    rgba(255,255,255,0.88);
+
+  box-shadow:
+    0 35px 90px rgba(124,72,154,0.18);
+
+  transform: rotate(4deg);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.about-photo-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -22px;
+
+  z-index: -1;
+
+  border-radius: 52px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,61,169,0.20),
+      rgba(44,207,255,0.18),
+      rgba(118,101,255,0.20)
+    );
+
+  filter: blur(14px);
+}
+
+.about-photo-card:hover {
+  transform:
+    rotate(1deg)
+    translateY(-8px);
+
+  box-shadow:
+    0 45px 100px rgba(124,72,154,0.24);
+}
+
+.about-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  font-weight: 900;
+
+  color: #9957a8;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255,255,255,0.9),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #ffcce5,
+      #ddd6ff,
+      #c7f1ff
+    );
+}
+
+.about-hero-mascot {
+  position: absolute;
+
+  z-index: 16;
+
+  width: 190px;
+
+  left: 0;
+  bottom: 20px;
+
+  filter:
+    drop-shadow(
+      0 18px 30px rgba(122,75,153,0.16)
+    );
+
+  animation:
+    aboutMascotFloat 5s ease-in-out infinite;
+}
+
+@keyframes aboutMascotFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-7deg);
+  }
+
+  50% {
+    transform:
+      translateY(-18px)
+      rotate(-2deg);
+  }
+}
+
+.about-hero-sprinkles {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 560px;
+
+  right: -80px;
+  bottom: 10px;
+
+  opacity: 0.28;
+
+  transform: rotate(-12deg);
+
+  animation:
+    aboutSprinkleFloat 7s ease-in-out infinite;
+}
+
+@keyframes aboutSprinkleFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-12deg);
+  }
+
+  50% {
+    transform:
+      translateY(-18px)
+      rotate(-8deg);
+  }
+}
+
+
+/* =========================================================
+   ABOUT STORY
+========================================================= */
+
+.about-story-section {
+  position: relative;
+
+  padding: 130px 5%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffafd,
+      #ffffff
+    );
+}
+
+.about-story-inner {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.about-story-copy h2 {
+  margin: 12px 0 28px;
+
+  font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3cac,
+      #2ccfff,
+      #7665ff,
+      #ff4da2
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-story-copy h2 span {
+  display: block;
+}
+
+.about-story-copy p {
+  font-size: 1.08rem;
+  line-height: 1.85;
+
+  color: #60476c;
+}
+
+.about-story-image {
+  position: relative;
+
+  min-height: 600px;
+
+  padding: 14px;
+
+  border-radius: 44px;
+
+  background:
+    rgba(255,255,255,0.82);
+
+  box-shadow:
+    0 30px 75px rgba(127,73,157,0.14);
+
+  transform: rotate(-3deg);
+}
+
+.about-story-image::after {
+  content: "behind the fluff ✨";
+
+  position: absolute;
+
+  right: -20px;
+  bottom: 35px;
+
+  padding: 14px 22px;
+
+  border-radius: 999px;
+
+  color: white;
+
+  font-weight: 900;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2ccfff,
+      #7665ff,
+      #ff4da2
+    );
+
+  box-shadow:
+    0 16px 35px rgba(116,92,255,0.22);
+
+  transform: rotate(5deg);
+}
+
+
+/* =========================================================
+   PERSONALITY CARDS
+========================================================= */
+
+.about-personality-section {
+  position: relative;
+
+  padding: 110px 5%;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f7,
+      #eefaff,
+      #f2edff
+    );
+}
+
+.about-personality-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+.personality-card {
+  position: relative;
+
+  padding: 38px 28px;
+
+  border-radius: 32px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,0.82);
+
+  border:
+    1px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 22px 55px rgba(135,76,160,0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.personality-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -90px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(44,207,255,0.15),
+      rgba(255,77,162,0.17)
+    );
+}
+
+.personality-card:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.personality-card:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.personality-card:hover {
+  transform:
+    translateY(-10px)
+    rotate(0deg);
+
+  box-shadow:
+    0 34px 75px rgba(135,76,160,0.18);
+}
+
+.personality-icon {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 18px;
+
+  font-size: 3rem;
+}
+
+.personality-card h3 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 12px;
+
+  font-size: 1.4rem;
+
+  color: #b33c90;
+}
+
+.personality-card p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  line-height: 1.7;
+
+  color: #654d70;
+}
+
+
+/* =========================================================
+   WHY IT'S SO FLUFFY
+========================================================= */
+
+.about-why-section {
+  position: relative;
+
+  padding: 135px 5%;
+
+  background: #ffffff;
+}
+
+.about-why-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 85px;
+
+  align-items: center;
+}
+
+.about-why-image {
+  position: relative;
+
+  min-height: 600px;
+
+  padding: 14px;
+
+  border-radius: 44px;
+
+  background:
+    rgba(255,255,255,0.85);
+
+  box-shadow:
+    0 30px 75px rgba(127,73,157,0.14);
+
+  transform: rotate(3deg);
+}
+
+.about-why-image::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -22px;
+
+  z-index: -1;
+
+  border-radius: 55px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,61,169,0.18),
+      rgba(44,207,255,0.16),
+      rgba(118,101,255,0.18)
+    );
+
+  filter: blur(14px);
+}
+
+.about-why-copy h2 {
+  margin: 12px 0 28px;
+
+  font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3cac,
+      #2ccfff,
+      #7665ff,
+      #ff4da2
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-why-copy h2 span {
+  display: block;
+}
+
+.about-why-copy p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+
+  color: #60476c;
+}
+
+.mini-pills {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin: 28px 0 30px;
+}
+
+.mini-pills span {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  font-size: 0.88rem;
+  font-weight: 900;
+
+  color: #9e3e82;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff0f7,
+      #edfaff
+    );
+
+  border:
+    1px solid rgba(211,91,164,0.12);
+}
+
+
+/* =========================================================
+   THE HUMAN BEHIND THE FLUFF
+========================================================= */
+
+.about-human-section {
+  position: relative;
+
+  padding: 150px 5%;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.8),
+      transparent 33%
+    ),
+    linear-gradient(
+      135deg,
+      #ffd9eb,
+      #dcf8ff,
+      #e9e2ff
+    );
+}
+
+.about-human-inner {
+  position: relative;
+
+  z-index: 10;
+
+  max-width: 900px;
+}
+
+.about-human-inner h2 {
+  margin: 10px 0 28px;
+
+  font-size: clamp(3.5rem, 7vw, 6.8rem);
+  line-height: 0.92;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3cac,
+      #2ccfff,
+      #7665ff,
+      #ff4da2
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-human-inner h2 span {
+  display: block;
+}
+
+.about-human-inner p {
+  max-width: 730px;
+
+  margin:
+    0 auto
+    18px;
+
+  font-size: 1.12rem;
+  line-height: 1.85;
+
+  color: #624a70;
+}
+
+.about-human-swirl {
+  position: absolute;
+
+  width: 1050px;
+
+  left: 50%;
+  top: 50%;
+
+  opacity: 0.11;
+
+  filter: blur(7px);
+
+  animation:
+    aboutHumanSpin 32s linear infinite;
+}
+
+@keyframes aboutHumanSpin {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ABOUT FINAL CTA
+========================================================= */
+
+.about-final-cta {
+  position: relative;
+
+  padding: 125px 5%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #fff4fa
+    );
+}
+
+.about-final-inner {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+
+  gap: 65px;
+
+  align-items: center;
+
+  max-width: 1100px;
+}
+
+.about-final-mascot {
+  width: 270px;
+
+  margin: auto;
+
+  animation:
+    aboutFinalMascotFloat 5s ease-in-out infinite;
+}
+
+@keyframes aboutFinalMascotFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  50% {
+    transform:
+      translateY(-18px)
+      rotate(2deg);
+  }
+}
+
+.about-final-inner h2 {
+  margin: 7px 0 22px;
+
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 0.95;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3cac,
+      #2ccfff,
+      #7665ff,
+      #ff4da2
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-final-inner h2 span {
+  display: block;
+}
+
+.about-final-inner p {
+  max-width: 700px;
+
+  font-size: 1.08rem;
+  line-height: 1.8;
+
+  color: #624a70;
+}
+
+
+/* =========================================================
+   ABOUT RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .about-page-inner,
+  .about-story-inner,
+  .about-why-inner,
+  .about-final-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page-inner {
+    text-align: center;
+
+    gap: 25px;
+  }
+
+  .about-page-copy {
+    padding-top: 50px;
+  }
+
+  .about-hero-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-page-visual {
+    min-height: 650px;
+  }
+
+  .about-personality-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .about-story-copy,
+  .about-why-copy,
+  .about-final-inner {
+    text-align: center;
+  }
+
+  .mini-pills {
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .about-page-hero {
+    padding-top: 120px;
+  }
+
+  .about-page-copy h1 {
+    font-size:
+      clamp(3.6rem, 16vw, 5.8rem);
+  }
+
+  .about-page-visual {
+    min-height: 530px;
+  }
+
+  .about-photo-card {
+    width: 84%;
+    height: 440px;
+
+    transform: rotate(2deg);
+  }
+
+  .about-hero-mascot {
+    width: 135px;
+
+    left: -5px;
+  }
+
+  .about-story-section,
+  .about-why-section {
+    padding:
+      90px
+      5%;
+  }
+
+  .about-story-inner,
+  .about-why-inner {
+    gap: 55px;
+  }
+
+  .about-story-image,
+  .about-why-image {
+    min-height: 430px;
+  }
+
+  .about-story-image::after {
+    right: 5px;
+
+    font-size: 0.78rem;
+  }
+
+  .about-personality-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personality-card {
+    transform: rotate(0deg) !important;
+  }
+
+  .about-human-section {
+    padding:
+      105px
+      5%;
+  }
+
+  .about-final-mascot {
+    width: 210px;
+  }
+
+}
+
