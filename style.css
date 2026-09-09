@@ -284,9 +284,9 @@ img {
 }
 
 
-/* =========================
-   CANDYFLOSS SWIRLS
-========================= */
+/* =========================================================
+   TRANSLUCENT CANDYFLOSS SWIRLS
+========================================================= */
 
 .swirl {
   position: absolute;
@@ -298,163 +298,194 @@ img {
 
   pointer-events: none;
 
-  filter:
-    blur(4px)
-    saturate(1.15);
-
   mix-blend-mode: screen;
 
-  will-change: transform, opacity;
+  will-change:
+    transform,
+    opacity,
+    filter;
 }
 
 
-/* large cloud-like ring */
+/* MAIN WISPY SWIRL */
 
 .swirl-main {
-  z-index: 10;
+  z-index: 7;
 
-  width: 130%;
+  width: 128%;
 
-  opacity: 0.24;
-
-  animation:
-    swirlAround 18s linear infinite,
-    swirlPulse 7s ease-in-out infinite;
-}
-
-
-/* secondary opposing swirl */
-
-.swirl-secondary {
-  z-index: 12;
-
-  width: 105%;
-
-  opacity: 0.18;
+  opacity: 0.20;
 
   filter:
-    blur(7px)
-    saturate(1.1);
+    blur(5px)
+    saturate(1.15);
 
   animation:
-    swirlAroundReverse 24s linear infinite,
-    swirlPulseSecondary 9s ease-in-out infinite;
+    fluffySwirlMain 18s ease-in-out infinite,
+    fluffySwirlPulse 7s ease-in-out infinite;
 }
 
 
-/* =========================
-   SWIRL ANIMATIONS
-========================= */
+/* SECONDARY WISPY SWIRL */
 
-@keyframes swirlAround {
+.swirl-secondary {
+  z-index: 8;
+
+  width: 108%;
+
+  opacity: 0.14;
+
+  filter:
+    blur(8px)
+    saturate(1.08);
+
+  animation:
+    fluffySwirlSecondary 23s ease-in-out infinite,
+    fluffySwirlPulseTwo 9s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN SWIRL MOVEMENT
+========================================================= */
+
+@keyframes fluffySwirlMain {
 
   0% {
     transform:
       translate(-50%, -50%)
-      rotate(0deg)
-      scale(1);
-  }
-
-  25% {
-    transform:
-      translate(-48%, -52%)
-      rotate(90deg)
-      scale(1.04);
-  }
-
-  50% {
-    transform:
-      translate(-52%, -48%)
-      rotate(180deg)
+      rotate(-8deg)
       scale(0.98);
   }
 
-  75% {
+  20% {
     transform:
-      translate(-49%, -51%)
-      rotate(270deg)
-      scale(1.05);
+      translate(-47%, -53%)
+      rotate(32deg)
+      scale(1.04);
+  }
+
+  40% {
+    transform:
+      translate(-53%, -49%)
+      rotate(78deg)
+      scale(1.00);
+  }
+
+  60% {
+    transform:
+      translate(-49%, -46%)
+      rotate(120deg)
+      scale(1.06);
+  }
+
+  80% {
+    transform:
+      translate(-46%, -51%)
+      rotate(165deg)
+      scale(1.02);
   }
 
   100% {
     transform:
       translate(-50%, -50%)
-      rotate(360deg)
-      scale(1);
+      rotate(352deg)
+      scale(0.98);
   }
+
 }
 
 
-@keyframes swirlAroundReverse {
+/* =========================================================
+   SECONDARY SWIRL MOVEMENT
+========================================================= */
+
+@keyframes fluffySwirlSecondary {
 
   0% {
     transform:
       translate(-50%, -50%)
-      rotate(360deg)
-      scale(0.96);
+      rotate(18deg)
+      scale(1.02);
   }
 
   25% {
     transform:
-      translate(-53%, -48%)
-      rotate(270deg)
-      scale(1.03);
+      translate(-54%, -47%)
+      rotate(-30deg)
+      scale(0.97);
   }
 
   50% {
     transform:
-      translate(-48%, -53%)
-      rotate(180deg)
-      scale(1);
+      translate(-48%, -54%)
+      rotate(-88deg)
+      scale(1.05);
   }
 
   75% {
     transform:
-      translate(-51%, -49%)
-      rotate(90deg)
-      scale(1.04);
+      translate(-46%, -49%)
+      rotate(-140deg)
+      scale(1.00);
   }
 
   100% {
     transform:
       translate(-50%, -50%)
-      rotate(0deg)
-      scale(0.96);
+      rotate(-342deg)
+      scale(1.02);
   }
+
 }
 
 
-/* opacity breathing gives the wispy/cloud feel */
+/* =========================================================
+   TRANSPARENCY / BREATHING
+========================================================= */
 
-@keyframes swirlPulse {
+@keyframes fluffySwirlPulse {
 
   0%,
   100% {
-    opacity: 0.18;
-    filter: blur(5px) saturate(1);
+    opacity: 0.14;
+
+    filter:
+      blur(7px)
+      saturate(1.05);
   }
 
   50% {
-    opacity: 0.30;
-    filter: blur(2px) saturate(1.2);
+    opacity: 0.27;
+
+    filter:
+      blur(3px)
+      saturate(1.22);
   }
+
 }
 
 
-@keyframes swirlPulseSecondary {
+@keyframes fluffySwirlPulseTwo {
 
   0%,
   100% {
-    opacity: 0.12;
-    filter: blur(8px) saturate(1);
+    opacity: 0.10;
+
+    filter:
+      blur(10px)
+      saturate(1.02);
   }
 
   50% {
-    opacity: 0.22;
-    filter: blur(5px) saturate(1.1);
-  }
-}
+    opacity: 0.21;
 
+    filter:
+      blur(6px)
+      saturate(1.15);
+  }
+
+}
 
 /* =========================
    FLOATING CANDYFLOSS ICON
